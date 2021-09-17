@@ -27,6 +27,7 @@ grep "LOW" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | cat ${REF}_${QRY}_syr
 grep "MODIFIER" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_MODIFIER.vcf
 grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_LOF_AND_HIGH.vcf
 grep "NMD" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_NMD_AND_HIGH.vcf
+grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep "NMD" - | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_LOF_NMD_AND_HIGH.vcf
 grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep -v "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_LOF_NOT_HIGH.vcf
 grep "NMD" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep -v "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_NMD_NOT_HIGH.vcf
 
