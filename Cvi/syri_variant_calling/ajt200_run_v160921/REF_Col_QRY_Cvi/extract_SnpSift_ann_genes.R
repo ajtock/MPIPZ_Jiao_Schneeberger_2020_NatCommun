@@ -17,13 +17,13 @@ library(stringr)
 vcf <- read.table(paste0(ref, "_", qry, "_syri_filt.SnpSift_intervals_", ann, ".vcf"),
                   header = T, skip = 37, comment.char = "")
 
-# HIGH
-geneIDs <- str_extract_all(vcf$INFO, paste0(gsub("_.+", "", ann), "\\|AT\\dG[0-9]+"))
-geneIDs <- unique(gsub(paste0(gsub("_.+", "", ann), "\\|"), "", unlist(geneIDs)))
-
-# LOF
-geneIDs <- str_extract_all(vcf$INFO, paste0(gsub("_.+", "", ann), "=\\(AT\\dG[0-9]+"))
-geneIDs <- unique(gsub(paste0(gsub("_.+", "", ann), "=\\("), "", unlist(geneIDs)))
-
+if(ann %in% c("LOF_AND_HIGH")) {
+  geneIDs <- str_extract_all(vcf$INFO, paste0(gsub("_.+", "", ann), "=\\(AT\\dG[0-9]+"))
+  geneIDs <- unique(gsub(paste0(gsub("_.+", "", ann), "=\\("), "", unlist(geneIDs)))
+} else {
+  geneIDs <- str_extract_all(vcf$INFO, paste0(gsub("_.+", "", ann), "\\|AT\\dG[0-9]+"))
+  geneIDs <- unique(gsub(paste0(gsub("_.+", "", ann), "\\|"), "", unlist(geneIDs)))
+}
 print(geneIDs)
+print(length(geneIDs))
 
