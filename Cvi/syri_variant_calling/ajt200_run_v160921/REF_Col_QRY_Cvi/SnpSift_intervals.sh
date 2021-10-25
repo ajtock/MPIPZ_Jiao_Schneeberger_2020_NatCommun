@@ -15,22 +15,22 @@ QRY=$2
 #echo $(which SnpSift)
 
 java -jar /home/ajt200/miniconda3/envs/syri/share/snpsift-4.3.1t-3/SnpSift.jar \
-     intervals ${REF}_genes_QTL1.1_interval.bed \
+     intervals ${REF}_genes_QTL1at45_interval.bed \
      -i ${REF}_${QRY}_syri_filt.snpEff.vcf \
-     > ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf
+     > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf
 
-head -n 38 ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf > ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf
+head -n 38 ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf
 
-grep "HIGH" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_HIGH.vcf
-grep "MODERATE" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_MODERATE.vcf
-grep "LOW" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_LOW.vcf
-grep "MODIFIER" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_MODIFIER.vcf
-grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_LOF_AND_HIGH.vcf
-grep "NMD" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_NMD_AND_HIGH.vcf
-grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep "NMD" - | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_LOF_NMD_AND_HIGH.vcf
-grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep -v "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_LOF_NOT_HIGH.vcf
-grep "NMD" ${REF}_${QRY}_syri_filt.SnpSift_intervals.vcf | grep -v "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_intervals_NMD_NOT_HIGH.vcf
+grep "HIGH" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HIGH.vcf
+grep "MODERATE" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_MODERATE.vcf
+grep "LOW" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_LOW.vcf
+grep "MODIFIER" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_MODIFIER.vcf
+grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_LOF_AND_HIGH.vcf
+grep "NMD" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_NMD_AND_HIGH.vcf
+grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | grep "NMD" - | grep "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_LOF_NMD_AND_HIGH.vcf
+grep "LOF" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | grep -v "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_LOF_NOT_HIGH.vcf
+grep "NMD" ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45.vcf | grep -v "HIGH" - | cat ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf - > ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_NMD_NOT_HIGH.vcf
 
-rm ${REF}_${QRY}_syri_filt.SnpSift_intervals_HEADER.vcf
+rm ${REF}_${QRY}_syri_filt.SnpSift_interval_QTL1at45_HEADER.vcf
 
 #source deactivate

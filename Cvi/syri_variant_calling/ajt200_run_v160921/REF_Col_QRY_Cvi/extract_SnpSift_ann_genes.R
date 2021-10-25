@@ -12,12 +12,13 @@ ref <- args[1]
 qry <- args[2]
 ann <- args[3]
 
+options(stringsAsFactors = F)
 library(stringr)
 
-vcf <- read.table(paste0(ref, "_", qry, "_syri_filt.SnpSift_intervals_", ann, ".vcf"),
-                  header = T, skip = 37, comment.char = "")
+vcf <- read.table(paste0(ref, "_", qry, "_syri_filt.SnpSift_interval_QTL1at45_", ann, ".vcf"),
+                  header = T, skip = 37, comment.char = "", colClasses = "character")
 
-if(ann %in% c("LOF_AND_HIGH")) {
+if(ann %in% c("LOF_AND_HIGH", "LOF_NMD_AND_HIGH")) {
   geneIDs <- str_extract_all(vcf$INFO, paste0(gsub("_.+", "", ann), "=\\(AT\\dG[0-9]+"))
   geneIDs <- unique(gsub(paste0(gsub("_.+", "", ann), "=\\("), "", unlist(geneIDs)))
 } else {
